@@ -18,7 +18,6 @@ def im2numpy(url):
     
     response = requests.get(url)
     img = Image.open(io.BytesIO(response.content))
-    img.show()
     numpydata = np.asarray(img)
     return numpydata
 
