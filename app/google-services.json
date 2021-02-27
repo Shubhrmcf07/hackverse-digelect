@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "694176869365",
+    "project_id": "digilect-3f548",
+    "storage_bucket": "digilect-3f548.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694176869365:android:57e65564f870d616958ebc",
+        "android_client_info": {
+          "package_name": "com.example.digilect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694176869365-g7cpg5s7o4hbe6u9eg74i377hv4t38sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz1wx0CmesWja6PlZjbWSwZ7JKtZwMqWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694176869365-g7cpg5s7o4hbe6u9eg74i377hv4t38sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

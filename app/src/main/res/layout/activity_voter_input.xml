@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VoterInput">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/digilect_logo"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:id="@+id/voterid"
+        android:layout_above="@+id/dob"
+        android:hint="Enter Voter ID Number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:id="@+id/dob"
+        android:focusable="false"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:longClickable="false"
+        android:inputType="date"
+        android:hint="Enter Date of Birth"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dob"
+        android:backgroundTint="#2361f1"
+        android:layout_marginTop="10dp"
+        android:id="@+id/submit"
+        android:text="Submit"/>
+</RelativeLayout>
