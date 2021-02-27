@@ -3,6 +3,7 @@ import numpy as np
 from PIL import Image
 import io
 import requests
+import sys
 
 known_path = sys.argv[1]
 unknown_path = sys.argv[2]
