@@ -1,5 +1,6 @@
 const electionModel = require("../models/electionModel");
 const voterModel = require("../models/userModel");
+const voteModel = require("../models/voteData");
 require("../utils/db");
 exports.getElectionsList = async (req, res) => {
   try {
@@ -113,6 +114,41 @@ exports.addVoter = async (req, res) => {
     return res.json({
       status: 200,
       message: "Voter Added",
+    });
+  } catch (err) {
+    console.log(err);
+    return res.json({
+      status: 500,
+      message: "Internal Server Error",
+    });
+  }
+};
+
+exports.vote = async (req, res) => {
+  try {
+    const { electionId, partyId } = req.body;
+
+    const voteEntry = voteModel.findOne({ electionId, partyId });
+
+    if (!voteEntry) {
+      const newVote = new voteModel({ electionId, partyId, numVotes: 1 });
+
+      await newVote.save();
+
+      return res.json({
+        status: 200,
+        message: "Vote Added Successfully!",
+      });
+    }
+
+    await voteModel.findOneAndUpdate(
+      { electionId, partyId },
+      { $inc: { numVotes: 1 } }
+    );
+
+    return res.json({
+      status: 200,
+      message: "Vote Added Successfully!",
     });
   } catch (err) {
     console.log(err);

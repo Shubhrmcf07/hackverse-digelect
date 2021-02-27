@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const electControl = require("../controller/elections");
-
+const verifyControl = require("../controller/photoVerification");
 router.get("/getElectionsList", electControl.getElectionsList);
 router.post("/addElection", electControl.enterElection);
 router.get("/partiesList", electControl.showParties);
 router.post("/addVoter", electControl.addVoter);
 router.get("/verifyUserCreds", electControl.verifyUser);
+router.post("/verifyImage", verifyControl.verifyUser);
+router.post("/vote", electControl.vote);
 module.exports = router;

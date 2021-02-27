@@ -37,3 +37,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8130/elections/verifyUserCreds?voterID=1234&dob=30-10-1999&electionId=603a17fb2ff58e29ee013456
+
+###
+POST http://localhost:8130/elections/verifyImage
+Content-Type: application/json
+
+{
+    "url" : "www.taylorherring.com/wp-content/uploads/2015/03/Archetypal-Male-Face-of-Beauty-embargoed-to-00.01hrs-30.03.15.jpg",
+    "photoURL" : "www.taylorherring.com/wp-content/uploads/2015/03/Archetypal-Male-Face-of-Beauty-embargoed-to-00.01hrs-30.03.15.jpg"
+}
