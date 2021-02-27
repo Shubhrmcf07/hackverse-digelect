@@ -22,16 +22,25 @@ def im2numpy(url):
     return numpydata
 
 def detect_faces(known_path, unknown_path):
-        
-    known_image = im2numpy(known_path)
-    unknown_image = im2numpy(unknown_path)
-    known_encoding = fr.face_encodings(known_image)[0]
-    unknown_encoding = fr.face_encodings(unknown_image)[0]
-   
+
+    try:    
+        known_image = im2numpy(known_path)
+        unknown_image = im2numpy(unknown_path)
+        known_encoding = fr.face_encodings(known_image)[0]
+        unknown_encoding = fr.face_encodings(unknown_image)[0]
+    except:
+        return -1
 
     result = compare_faces(known_encoding, unknown_encoding, 0.75)
 
-    return result[0]
+    if result[0]==True:
+        return 1
+    else:
+        result = compare_faces(known_encoding, unknown_encoding, 0.5)
+        if result[0] == True:
+            return 0
+        else:
+            return -1        
 
 
 if __name__ == "__main__":
