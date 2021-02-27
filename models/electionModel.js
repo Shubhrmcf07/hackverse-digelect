@@ -21,8 +21,19 @@ const schema = mongoose.Schema({
     required: true,
   },
 
-  fingerPrintImpression: {
-    type: String,
-    required: true,
-  },
+  partiesContesting: [
+    {
+      partyId: {
+        type: String,
+        required: true,
+      },
+
+      numSeats: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
+
+module.exports = mongoose.model("upcoming elections", schema);
