@@ -33,10 +33,6 @@
 * [Installation Steps](#installation-steps)
 * [Declaration of Previous Work](#declaration-of-previous-work)
 * [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
 
 ## Description
 **Digilect** is an app based on the *contactless alternative of Elections and Voting procedures.* During the pandemic, one of the activities that could not be held online was India's Elections. We believe that the Elections could be held *digitally through smartphones.* The right amount of verification steps like *fingerprint matching, photo verification, and linkage with the official user database of voter IDs and documents* are possible.
