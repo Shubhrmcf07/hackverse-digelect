@@ -53,6 +53,7 @@
 * Nginx
 * LetsEncrypt
 * Gson
+* Picasso
 
 ## Installation Steps
 
