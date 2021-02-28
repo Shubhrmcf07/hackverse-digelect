@@ -52,6 +52,6 @@
         android:visibility="gone"
         android:backgroundTint="@color/purple_500"
         android:text="proceed"
-        android:id="@+id/proceed"/>ā
+        android:id="@+id/proceed"/>
 
 </RelativeLayout>
