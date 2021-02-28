@@ -21,10 +21,12 @@ import java.io.ByteArrayOutputStream;
 
 public class PhotoVerification extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    String electionId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_verification);
+        electionId=getIntent().getExtras().getString("electionId");
         findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +51,8 @@ public class PhotoVerification extends AppCompatActivity {
             findViewById(R.id.click).setVisibility(View.GONE);
             findViewById(R.id.verifytext).setVisibility(View.GONE);
             findViewById(R.id.image).setVisibility(View.VISIBLE);
+            findViewById(R.id.analysisresult).setVisibility(View.VISIBLE);
+            findViewById(R.id.proceed).setVisibility(View.VISIBLE);
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageView imageView = findViewById(R.id.image);
@@ -72,7 +76,17 @@ public class PhotoVerification extends AppCompatActivity {
                     // ...
                 }
             });
+            findViewById(R.id.proceed).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent=new Intent(PhotoVerification.this,PartyActivity.class);
+                    intent.putExtra("electionId",electionId);
+                    startActivity(intent);
+                }
+            });
         }
     }
+
 
 }

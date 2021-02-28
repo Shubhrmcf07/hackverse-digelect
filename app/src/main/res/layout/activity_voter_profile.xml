@@ -5,40 +5,142 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_marginHorizontal="30dp"
+    android:gravity="center_vertical"
     tools:context=".VoterProfile">
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:id="@+id/picture"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
         />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp"
+            android:text="Name:"
+            android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:id="@+id/name"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/teal_200"
+            android:text="Voter ID:"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/dob"
+        android:layout_margin="5dp"
+        android:textColor="@color/blue"
+        android:id="@+id/voterid"
+        android:textSize="20sp"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/teal_200"
+            android:text="Gender:"
+            android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/address"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:id="@+id/gender"
+        android:textColor="@color/blue"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp"
+            android:text="Constituency:"
+            android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:id="@+id/constituency"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/teal_200"
+            android:text="State:"
+            android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:id="@+id/state"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp"
+            android:text="Phone:"
+            android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/phone"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Proceed"
+        android:layout_gravity="center"
         android:id="@+id/proceed"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/blue"/>
 
 </LinearLayout>

@@ -11,8 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.digilect.api.APIClient;
+import com.example.digilect.api.APIInterfaceElections;
+import com.example.digilect.models.Election;
+import com.example.digilect.models.ResponseModel;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executor;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
-//    List<ElectionObject> electionList;
+    List<Election> mElectionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
-     //   electionList=new ArrayList<>();
+        mElectionList=new ArrayList<>();
         initializeRecyclerView();
-        getElectiontList();
+        getElectionList();
 
 
 
@@ -51,13 +61,12 @@ public class MainActivity extends AppCompatActivity {
                     @NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getApplicationContext(),
-                        "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+                        "Welcome to Digilect!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
-                finish();
             }
         });
 
@@ -70,7 +79,24 @@ public class MainActivity extends AppCompatActivity {
         biometricPrompt.authenticate(promptInfo);
     }
 
-    private void getElectiontList() {
+    private void getElectionList() {
+        final APIInterfaceElections apiService = APIClient.getClient().create(APIInterfaceElections.class);
+        Call<ResponseModel> call = apiService.getElectionsList();
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel>call, Response<ResponseModel> response) {
+                if(response.body().getStatus()==200) {
+                    List<Election> electionList = response.body().getElections();
+                    for(Election election:electionList) {
+                        mElectionList.add(election);
+                        electionListAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseModel>call, Throwable t) {
+            }
+        });
     }
 
     private void initializeRecyclerView() {
@@ -80,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(false);
         layoutManager=new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-  //      electionListAdapter=new ElectionListAdapter(electionList);
+        electionListAdapter=new ElectionListAdapter(mElectionList);
         recyclerView.setAdapter(electionListAdapter);
     }
 }
